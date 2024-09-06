@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App'; // Haupt-App-Komponente
-import Angeln from './pages/Angeln'; // Seite "Angeln"
-import Auto from './pages/Auto'; // Seite "Auto"
+import App from './App'; 
+import Angeln from './pages/Angeln'; 
+import Auto from './pages/Auto'; 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-function AppRouter() { // Umbenennen der Komponente
+function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>

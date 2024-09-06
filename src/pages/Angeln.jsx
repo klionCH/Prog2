@@ -1,15 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
-
+import "./style/style.css";
+import Nav from "../components/nav.jsx";
 const Angeln = () => {
+
     return (
         <>
-            <h1>Angeln</h1>
-            <nav>
-                <Link to="/">Start</Link>
-                <Link to="/auto">Auto</Link>
-                <Link to="/angeln">Angeln</Link>
-            </nav>
-            <Outlet/>
+            <Nav></Nav>
         </>
     );
 };

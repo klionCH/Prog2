@@ -1,12 +1,11 @@
-import React from "react";
-
-
+import { Outlet, Link } from "react-router-dom";
+import "./style/style.css";
+import Nav from "../components/nav.jsx";
 const Auto = () => {
+
     return (
         <>
-            <div className="bg-sky-500 w-full h-full">
-                awfawgaga
-            </div>
+            <Nav></Nav>
         </>
     );
 };
