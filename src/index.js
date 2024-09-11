@@ -7,6 +7,7 @@ import Auto from './pages/Auto';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
+
 function AppRouter() {
   return (
     <BrowserRouter>

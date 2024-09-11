@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],  
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        rokkitt: ['Rokkitt', 'sans-serif'], // Add the Rokkitt font
+      },
+    },
     colors: {
       'background': '#1E1E1E',
       'text-orange': '#F2A11E',
