@@ -1,16 +1,12 @@
 import './App.css';
-
-import Auto from './pages/Auto';
-import Angeln from './pages/Angeln';
 import Nav from './components/nav';
 
-
 function App() {
-  return (
-    <>
-      <Nav></Nav>
-    </>
-  );
+    return (
+        <>
+            <Nav />
+        </>
+    );
 }
 
 export default App;

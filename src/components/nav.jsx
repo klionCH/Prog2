@@ -1,40 +1,63 @@
-import { Outlet, Link } from "react-router-dom";
-import Nav from "../components/nav.jsx";
-import mitsubishi from "../img/mit-edited.jpg";
-
-const Auto = () => {
-    const circle = "w-72 aspect-square rounded-full border-2 border-circle flex items-center justify-center opacity-25 bg-circle";
-
+import { useEffect, useState } from "react";
+import { useLocation, Outlet, Link } from "react-router-dom";
+// Reusable SVG Component
+const PolygonSVG = ({ translateX, translateY }) => (
+    <svg height="1000" width="1000" className="absolute opacity-25 pointer-events-none">
+        <polygon
+            points="120,10 40,220 180,78 20,98 120,200"
+            fill="white"
+            transform={`translate(${translateX}, ${translateY}) scale(3) translate(-60, -100)`}
+        />
+    </svg>
+);
+const Nav = () => {
+    const circle = "w-72 aspect-square rounded-full border-2 border-circle flex items-center justify-center";
+    const location = useLocation(); // Get the current route
+    const currentPath = location.pathname;
+    const [showAutoSVG, setShowAutoSVG] = useState(false);
+    const [showAngelnSVG, setShowAngelnSVG] = useState(false);
+    useEffect(() => {
+        if (currentPath === "/auto") {
+            setShowAutoSVG(true);
+            setShowAngelnSVG(false);
+        } else if (currentPath === "/angeln") {
+            setShowAutoSVG(false);
+            setShowAngelnSVG(true);
+        } else {
+            setShowAutoSVG(false);
+            setShowAngelnSVG(false);
+        }
+    }, [currentPath]);
     return (
-        <div className="bg-background h-screen relative overflow-hidden">
-            <Nav />
+        <>
+            <nav className="bg-background h-screen overflow-hidden">
+                <div className="h-20 border-b-2 border-circle z-0 mb-4"></div>
+                <div className="relative grid grid-cols-3 gap-4">
 
-            {/* Circles spread across the screen */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className={`${circle} absolute top-10 left-10`} />
-                <div className={`${circle} absolute top-1/4 left-1/4`} />
-                <div className={`${circle} absolute top-2/3 left-1/2`} />
-                <div className={`${circle} absolute top-1/2 left-3/4`} />
-                {/* Add more circles with different positions as needed */}
-            </div>
-
-            <div className="text-text-white h-fit mt-56 relative z-0">
-                <img className="absolute left-2/4 w-1/4 z-0" src={mitsubishi} alt="Mitsubishi" />
-                <div className="relative w-1/3 left-1/4 pt-40">
-                    <div className="text-text-orange h-fit font-rokkitt text-2xl tracking-widest leading-loose mb-8">
-                        Der Mitsubishi Lancer Evo 8 ist ein leistungsstarker, allradgetriebener Sportwagen, der durch seine Turboaufladung und aggressive Optik bekannt wurde. Er gilt als Ikone des Rallyesports und bietet beeindruckende Fahreigenschaften auf der Straße und abseits davon.
+                    {/* Left Circle - Fotografie */}
+                    <div className="absolute left-1/4 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                        <div className={circle}>
+                            <Link to="/auto" className="text-text-white text-xl font-bold">Fotografie</Link>
+                        </div>
+                        {showAutoSVG && <PolygonSVG translateX={410} translateY={450} />}
                     </div>
-                    <div className="text-text-pink h-fit font-rokkitt text-2xl tracking-widest leading-loose">
-                        Canon eos r
-                        <br />
-                        F1/150
-                        <br />
-                        Mitsubishi Lancer Evo 8
+                    {/* Center Circle - Meine Hobbys */}
+                    <div className="absolute top-1/3 left-2/4 transform -translate-x-1/2 -translate-y-2/3">
+                        <div className={circle}>
+                            <p className="text-text-white font-bold text-3xl">Meine Hobbys</p>
+                        </div>
+                    </div>
+                    {/* Right Circle - Angeln */}
+                    <div className="absolute top-1/3 left-3/4 transform -translate-x-1/2 -translate-y-1/3 flex items-center justify-center">
+                        <div className={circle}>
+                            <Link to="/angeln" className="text-text-white text-2xl font-bold">Angeln</Link>
+                        </div>
+                        {showAngelnSVG && <PolygonSVG translateX={410} translateY={450} />}
                     </div>
                 </div>
-            </div>
-        </div>
+            </nav>
+            <Outlet />
+        </>
     );
 };
-
-export default Auto;
+export default Nav;
