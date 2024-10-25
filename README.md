@@ -13,3 +13,8 @@ Dieses Projekt ist eine persönliche Webseite, auf der ich meine liebsten Freize
 ## Design Konzept
 
 ![Design Konzept](./image.png)
+
+##### Animationen
+![image](https://github.com/user-attachments/assets/1c821d3e-6e3b-45ae-8507-011cf1e190f2)
+- Bewegende selektions Animation
+- Blinkender Curser
