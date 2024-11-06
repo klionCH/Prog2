@@ -2,14 +2,13 @@ import Nav from "../components/nav.jsx";
 import mitsubishi from "../img/mit-edited.jpg";
 
 const Auto = () => {
-    const circle = "w-72 aspect-square rounded-full border-2 border-circle flex items-center justify-center opacity-25 bg-circle";
+    const circle = "w-96 aspect-square rounded-full border-4 border-circle flex items-center justify-center";
 
     return (
         <div className="bg-background h-screen relative overflow-hidden">
             <Nav />
             <div className="absolute inset-0 pointer-events-none">
-                <div className={`${circle} absolute top-10 left-10`} />
-                <div className={`${circle} absolute top-1/4 left-1/4`} />
+                <div className={`${circle} absolute top-2/4 left-1/4`} />
                 <div className={`${circle} absolute top-2/3 left-1/2`} />
                 <div className={`${circle} absolute top-1/2 left-3/4`} />
             </div>
