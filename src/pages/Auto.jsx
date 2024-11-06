@@ -1,6 +1,7 @@
 import Nav from "../components/nav.jsx";
 import mitsubishi from "../img/mit-edited.jpg";
 
+
 const Auto = () => {
     const circle = "w-96 aspect-square rounded-full border-4 border-circle flex items-center justify-center";
 
