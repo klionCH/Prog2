@@ -1,16 +1,30 @@
-import "./style/style.css";
+import React from "react";
 import Nav from "../components/nav.jsx";
-import NeonBanner from "../components/TextBanner"
+import Marquee from "react-fast-marquee"; // Import the Marquee component
+import "../style/style.css"; // Import your custom CSS
 
 const Angeln = () => {
+    const top = ["HWA EVO", "|", "Mitsubishi Lancer Evo 8", "|"];
+
     return (
         <div className="bg-background h-screen">
-            <Nav />
-            <div className="text-text-white h-fit mt-56 z-0">
-                <div className="bg-text-white w-fit h-fit absolute left-1/4">
-                    <NeonBanner/>
+            <div className="flex justify-center ">
+                <div className="w-full absolute  mt-3 p-3 marquee-banner-border z-10">
+                    {/* First Marquee with full-width */}
+                    <Marquee gradient={false} speed={40} className="marquee-banner" autoFill={true}>
+                        {top.map((item, index) => (
+                            <span key={index} className="marquee-item">
+                {item}
+              </span>
+                        ))}
+                    </Marquee>
                 </div>
-                <div className="bg-text-orange w-96 h-96 absolute left-2/4"></div>
+            </div>
+
+            <Nav/>
+
+            <div className="text-text-white h-fit mt-56 z-0 flex justify-center">
+
             </div>
         </div>
     );

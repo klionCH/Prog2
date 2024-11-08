@@ -1,0 +1,32 @@
+.select-Outline {
+    stroke: pink
+}
+
+/* Marquee container styles */
+.marquee-banner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8); /* Neon glow */
+}
+
+.marquee-banner-border{
+
+    box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8);
+
+}
+
+/* Individual items inside the marquee */
+.marquee-item {
+    padding: 0 2rem; /* Spacing between text items */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #fff; /* Text color */
+}
+
+/* Optional: Add custom responsiveness */
+@media (max-width: 768px) {
+    .marquee-item {
+        font-size: 1rem; /* Smaller text on mobile devices */
+    }
+}
