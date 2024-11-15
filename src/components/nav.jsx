@@ -30,7 +30,7 @@ const Nav = () => {
     }, [currentPath]);
     return (
         <>
-            <nav className="bg-background h-screen overflow-hidden">
+            <nav className="bg-background w-screen absolute h-1/2 overflow-hidden">
                 <div className="h-20 border-b-2 border-circle z-0 mb-4"></div>
                 <div className="relative grid grid-cols-3 gap-4">
 
