@@ -3,9 +3,9 @@ import Nav from './components/nav';
 
 function App() {
     return (
-        <>
+        <div className="bg-background h-screen">
             <Nav />
-        </>
+        </div>
     );
 }
 
