@@ -11,8 +11,6 @@
 
 }
 
-
-
 .marquee-banner-border{
     box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(0, 255, 255, 0.8);
 }
@@ -30,4 +28,27 @@
     .marquee-item {
         font-size: 1rem; /* Smaller text on mobile devices */
     }
+}
+
+
+/* Define the ease-in animation */
+@keyframes easeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start below the normal position */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+    }
+}
+
+/* Class for applying the animation */
+.ease-in {
+    animation: easeIn 1s ease-out forwards; /* Apply the ease-in animation */
+}
+
+/* Optionally: Adjust styles for better performance */
+.fade-in {
+    opacity: 0; /* Start with element hidden */
 }

@@ -9,8 +9,7 @@ const Angeln = () => {
     return (
         <div className="bg-background h-screen">
             <div className="flex justify-center ">
-                <div className="w-full absolute  mt-3 p-3 marquee-banner-border z-10">
-                    {/* First Marquee with full-width */}
+                <div className="w-full absolute  mt-3 p-3 marquee-banner-border z-10 ">
                     <Marquee gradient={false} speed={40} className="marquee-banner" autoFill={true}>
                         {top.map((item, index) => (
                             <span key={index} className="marquee-item">
