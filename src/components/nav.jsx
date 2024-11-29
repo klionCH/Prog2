@@ -30,7 +30,7 @@ const Nav = () => {
     }, [currentPath]);
     return (
         <>
-            <nav className="bg-background h-screen overflow-hidden">
+            <nav className="w-screen absolute h-1/2 overflow-hidden">
                 <div className="h-20 border-b-2 border-circle z-0 mb-4"></div>
                 <div className="relative grid grid-cols-3 gap-4">
 
@@ -40,7 +40,7 @@ const Nav = () => {
                         </div>
                         {showAutoSVG && <PolygonSVG translateX={410} translateY={450} />}
                     </div>
-                    <div className="absolute top-1/3 left-2/4 transform -translate-x-1/2 -translate-y-1/2 bg-background">
+                    <div className="absolute top-1/3 left-2/4 transform -translate-x-1/2 -translate-y-1/2">
                         <div className={circle}>
                             <p className="text-text-white font-bold text-5xl">Meine Hobbys</p>
                         </div>
