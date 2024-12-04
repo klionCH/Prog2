@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import mitsubishi from "../img/redMitsubishiEvo.jpg";
-import bmw from "../img/bmw.png";
-import secondCarImage from "../img/redMitsubishiEvo.jpg";
-import Marquee from "react-fast-marquee";
-import Nav from "../components/nav.jsx";
+import carData from "../data/data.json"; // Importing the JSON data
+import Marquee from "react-fast-marquee"; // Importing Marquee component
+import Nav from "../components/nav.jsx"; // Importing Nav component
 
 const Auto = () => {
-    const top = ["HWA EVO", "|", "Mitsubishi Lancer Evo 8", "|"];
+    const top = carData.marqueeItems; // Use marquee items from the JSON
 
     // Intersection Observer to add the "ease-in" class when elements are in view
     useEffect(() => {
@@ -14,16 +12,16 @@ const Auto = () => {
             (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("ease-in");
-                        observer.unobserve(entry.target); // Stop observing after animation triggers
+                        entry.target.classList.add("ease-in"); // Adding the "ease-in" class when the element is visible
+                        observer.unobserve(entry.target); // Stop observing after the animation triggers
                     }
                 });
             },
             { threshold: 0.5 } // Trigger when 50% of the element is in view
         );
 
-        const elements = document.querySelectorAll(".fade-in");
-        elements.forEach(element => observer.observe(element));
+        const elements = document.querySelectorAll(".fade-in"); // Select elements with the "fade-in" class
+        elements.forEach(element => observer.observe(element)); // Start observing those elements
 
         return () => {
             // Cleanup observer on component unmount
@@ -33,7 +31,7 @@ const Auto = () => {
 
     return (
         <div className="bg-background min-h-screen relative overflow-x-hidden">
-            {/* Sticky Marquee Banner */}
+            {/* Marquee Banner */}
             <div className="flex justify-center top-0 z-20">
                 <div className="w-full p-3 marquee-banner-border">
                     <Marquee gradient={false} speed={40} className="marquee-banner" autoFill={true}>
@@ -47,56 +45,81 @@ const Auto = () => {
             </div>
 
             {/* Navigation Bar */}
-            <Nav className="z-30" />
+            <Nav className="z-30 fixed top-0 w-full" />
 
+            {/* Cars Section */}
             <div className="relative z-10 pt-40 pb-16 space-y-40 mt-64">
-                {/* First Car Section */}
-                <div className="relative grid grid-cols-5 items-center">
-                    <div className="col-span-2 relative text-text-white z-20 px-8 left-3/4 fade-in">
-                        <div className="text-text-orange font-rokkitt lg:text-2xl text-1xl tracking-widest leading-loose mb-8">
-                            Der Mitsubishi Lancer Evo 8 ist ein leistungsstarker, allradgetriebener Sportwagen, der
-                            durch seine Turboaufladung und aggressive Optik bekannt wurde. Er gilt als Ikone des
-                            Rallyesports und bietet beeindruckende Fahreigenschaften auf der Straße und abseits davon.
-                        </div>
-                        <div className="text-text-pink font-rokkitt lg:text-2xl text-xl tracking-widest leading-loose">
-                            <p className="pt-1 pb-1">Canon eos r</p>
-                            <p className="pt-1 pb-1">F1/150</p>
-                            <p className="pt-1 pb-1">Mitsubishi Lancer Evo 8</p>
-                        </div>
+                {carData.cars.map((car, index) => (
+                    <div key={car.id} className={`relative grid grid-cols-5 items-center ${index % 2 === 0 ? "" : "mt-64"}`}>
+                        {index % 2 === 0 ? (
+                            <>
+                                <div className="col-span-2 relative text-text-white z-20 px-8 left-3/4 fade-in">
+                                    <div className="text-text-orange font-rokkitt lg:text-2xl text-1xl tracking-widest leading-loose mb-8">
+                                        {car.description.text}
+                                    </div>
+                                    <div className="text-text-pink font-rokkitt lg:text-2xl text-xl tracking-widest leading-loose">
+                                        {car.details.map((detail, i) => (
+                                            <p key={i} className="pt-1 pb-1">{detail}</p>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="col-span-1"></div>
+                                <div className="col-span-2 relative fade-in">
+                                    <img
+                                        className="w-3/5 relative z-10 mx-auto right-1/4"
+                                        src={`${process.env.PUBLIC_URL}${car.image}`} // Correct path for images in public folder
+                                        alt={car.alt}
+                                        loading={"lazy"}
+                                    />
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="col-span-2 relative fade-in">
+                                    <img
+                                        className="w-3/5 relative z-10 mx-auto left-1/4"
+                                        src={`${process.env.PUBLIC_URL}${car.image}`} // Correct path for images in public folder
+                                        alt={car.alt}
+                                        loading={"lazy"}
+                                    />
+                                </div>
+                                <div className="col-span-1"></div>
+                                <div className="col-span-2 relative text-text-white z-20 px-8 right-3/4 fade-in">
+                                    <div className="text-text-orange font-rokkitt xl:text-2xl text-1xl tracking-widest leading-loose mb-8 text-right">
+                                        {car.description.text}
+                                    </div>
+                                    <div className="text-text-pink font-rokkitt xl:text-2xl text-1xl tracking-widest leading-loose text-right">
+                                        {car.details.map((detail, i) => (
+                                            <p key={i} className="pt-1 pb-1">{detail}</p>
+                                        ))}
+                                    </div>
+                                </div>
+                            </>
+                        )}
                     </div>
-                    <div className="col-span-1"></div>
-                    <div className="col-span-2 relative fade-in">
-                        <img
-                            className="w-3/5 relative z-10 mx-auto right-1/4"
-                            src={mitsubishi}
-                            alt="Mitsubishi"
-                            loading={"lazy"}
-                        />
-                    </div>
-                </div>
+                ))}
+            </div>
 
-                {/* Second Car Section */}
-                <div className="mt-64 relative grid grid-cols-5 items-center">
-                    <div className="col-span-2 relative fade-in">
-                        <img
-                            className="w-3/5 relative z-10 mx-auto left-1/4"
-                            src={bmw}
-                            alt="Second Mitsubishi"
-                            loading={"lazy"}
-                        />
-                    </div>
-                    <div className="col-span-1"></div>
-                    <div className="col-span-2 relative text-text-white z-20 px-8 right-3/4 fade-in">
-                        <div className="text-text-orange font-rokkitt xl:text-2xl text-1xl tracking-widest leading-loose mb-8 text-right">
-                            Der BMW 7er E38 (1994–2001) verbindet zeitlose Eleganz mit fortschrittlicher Technik und bietet Motoren vom Reihensechszylinder bis zum V12. Als erste Limousine mit integriertem Navigationssystem setzte er neue Maßstäbe in der Oberklasse. Sein Auftritt in Filmen wie „James Bond – Der Morgen stirbt nie“ unterstreicht seinen Kultstatus bis heute.                        </div>
-                        <div
-                            className="text-text-pink font-rokkitt xl:text-2xl text-1xl tracking-widest leading-loose text-right">
-                            <p className="pt-1 pb-1">Canon eos r</p>
-                            <p className="pt-1 pb-1">F1/150</p>
-                            <p className="pt-1 pb-1">BMW E38</p>
-                        </div>
-                    </div>
-                </div>
+            {/* Decorative Rings (with no hitbox) */}
+            <div className="absolute inset-0 z-10 pointer-events-none overflow-auto">
+                {/* Ring 1 */}
+                <div className="absolute w-[450px] h-[450px] border-[6px] border-circle opacity-50 top-[13%] left-[9%] rounded-full animate-ring"></div>
+                {/* Ring 2 */}
+                <div className="absolute w-[600px] h-[600px] border-[6px] border-circle opacity-50 top-[15%] left-[60%] rounded-full animate-ring delay-2000"></div>
+                {/* Ring 3 */}
+                <div className="absolute w-[550px] h-[550px] border-[6px] border-circle opacity-50 top-[30%] left-[25%] rounded-full animate-ring delay-4000"></div>
+                {/* Ring 4 */}
+                <div className="absolute w-[700px] h-[700px] border-[6px] border-circle opacity-50 top-[45%] left-[50%] rounded-full animate-ring delay-1000"></div>
+                {/* Ring 5 */}
+                <div className="absolute w-[650px] h-[650px] border-[6px] border-circle opacity-50 top-[60%] left-[75%] rounded-full animate-ring delay-3000"></div>
+                {/* Ring 6 */}
+                <div className="absolute w-[650px] h-[650px] border-[6px] border-circle opacity-50 top-[42%] left-[4%] rounded-full animate-ring delay-3000"></div>
+                {/* Ring 7 */}
+                <div className="absolute w-[800px] h-[800px] border-[6px] border-circle opacity-50 top-[70%] left-[20%] rounded-full animate-ring delay-5000"></div>
+                {/* Ring 8 */}
+                <div className="absolute w-[750px] h-[750px] border-[6px] border-circle opacity-50 top-[25%] left-[80%] rounded-full animate-ring delay-6000"></div>
+                {/* Ring 9 */}
+                <div className="absolute w-[500px] h-[500px] border-[6px] border-circle opacity-50 top-[85%] left-[40%] rounded-full animate-ring delay-7000"></div>
             </div>
         </div>
     );
