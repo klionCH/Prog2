@@ -1,30 +1,28 @@
 import React, { useEffect } from "react";
-import carData from "../data/data.json"; // Importing the JSON data
-import Marquee from "react-fast-marquee"; // Importing Marquee component
-import Nav from "../components/nav.jsx"; // Importing Nav component
+import carData from "../data/data.json"; 
+import Marquee from "react-fast-marquee";
+import Nav from "../components/nav.jsx"; 
 
 const Auto = () => {
-    const top = carData.marqueeItems; // Use marquee items from the JSON
+    const top = carData.marqueeItems; 
 
-    // Intersection Observer to add the "ease-in" class when elements are in view
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add("ease-in"); // Adding the "ease-in" class when the element is visible
-                        observer.unobserve(entry.target); // Stop observing after the animation triggers
+                        entry.target.classList.add("ease-in"); 
+                        observer.unobserve(entry.target); 
                     }
                 });
             },
-            { threshold: 0.5 } // Trigger when 50% of the element is in view
+            { threshold: 0.5 } 
         );
 
-        const elements = document.querySelectorAll(".fade-in"); // Select elements with the "fade-in" class
-        elements.forEach(element => observer.observe(element)); // Start observing those elements
+        const elements = document.querySelectorAll(".fade-in");
+        elements.forEach(element => observer.observe(element));
 
         return () => {
-            // Cleanup observer on component unmount
             elements.forEach(element => observer.unobserve(element));
         };
     }, []);
@@ -67,7 +65,7 @@ const Auto = () => {
                                 <div className="col-span-2 relative fade-in">
                                     <img
                                         className="w-3/5 relative z-10 mx-auto right-1/4"
-                                        src={`${process.env.PUBLIC_URL}${car.image}`} // Correct path for images in public folder
+                                        src={`${process.env.PUBLIC_URL}${car.image}`}
                                         alt={car.alt}
                                         loading={"lazy"}
                                     />
@@ -78,7 +76,7 @@ const Auto = () => {
                                 <div className="col-span-2 relative fade-in">
                                     <img
                                         className="w-3/5 relative z-10 mx-auto left-1/4"
-                                        src={`${process.env.PUBLIC_URL}${car.image}`} // Correct path for images in public folder
+                                        src={`${process.env.PUBLIC_URL}${car.image}`} 
                                         alt={car.alt}
                                         loading={"lazy"}
                                     />
@@ -100,6 +98,7 @@ const Auto = () => {
                 ))}
             </div>
 
+
             {/* Decorative Rings (with no hitbox) */}
             <div className="absolute inset-0 z-10 pointer-events-none overflow-auto">
                 {/* Ring 1 */}
@@ -120,6 +119,7 @@ const Auto = () => {
                 <div className="absolute w-[750px] h-[750px] border-[6px] border-circle opacity-50 top-[25%] left-[80%] rounded-full animate-ring delay-6000"></div>
                 {/* Ring 9 */}
                 <div className="absolute w-[500px] h-[500px] border-[6px] border-circle opacity-50 top-[85%] left-[40%] rounded-full animate-ring delay-7000"></div>
+                
             </div>
         </div>
     );

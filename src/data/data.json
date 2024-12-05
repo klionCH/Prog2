@@ -45,5 +45,11 @@
       ]
     }
 
+  ],
+  "videos": [
+    {
+      "id": "mitsubishi-evo-8",
+      "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
   ]
 }
