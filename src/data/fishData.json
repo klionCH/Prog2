@@ -1,10 +1,10 @@
 {
-  "pageTitle": "Auto Showcase",
-  "marqueeItems": ["HWA EVO", "|", "Mitsubishi Lancer Evo 8", "|"],
+  "pageTitle": "Fish Showcase",
+  "marqueeItems": ["Meerforelle", "|", "Hecht", "|"],
   "cars": [
     {
-      "id": "mitsubishi-evo-8",
-      "image": "/img/redMitsubishiEvo.jpg",
+      "id": "Meerforelle",
+      "image": "/img/cars/redMitsubishiEvo.jpg",
       "alt": "Mitsubishi",
       "description": {
         "title": "Mitsubishi Lancer Evo 8",
@@ -18,7 +18,7 @@
     },
     {
       "id": "bmw-e38",
-      "image": "/img/bmw.png",
+      "image": "/img/cars/bmw.png",
       "alt": "BMW",
       "description": {
         "title": "BMW 7er E38",
@@ -32,7 +32,7 @@
     },
     {
       "id": "ferrari-f12",
-      "image": "/img/f12.jpg",
+      "image": "/img/cars/f12.jpg",
       "alt": "Audi",
       "description": {
         "title": "Ferrari F12",

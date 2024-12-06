@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import carData from "../data/data.json"; 
+import carData from "../data/carData.json";
 import Marquee from "react-fast-marquee";
-import Nav from "../components/nav.jsx"; 
+import Nav from "../components/nav.jsx";
+import "../style/style.css"
 
 const Auto = () => {
     const top = carData.marqueeItems; 
@@ -30,8 +31,8 @@ const Auto = () => {
     return (
         <div className="bg-background min-h-screen relative overflow-x-hidden">
             {/* Marquee Banner */}
-            <div className="flex justify-center top-0 z-20">
-                <div className="w-full p-3 marquee-banner-border">
+            <div className="flex justify-center top-0 z-20 pl-5 pr-5  pt-2 rounded-full">
+                <div className="w-full p-3 marquee-banner-border ">
                     <Marquee gradient={false} speed={40} className="marquee-banner" autoFill={true}>
                         {top.map((item, index) => (
                             <span key={index} className="marquee-item">

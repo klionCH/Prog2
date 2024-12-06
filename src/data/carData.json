@@ -1,0 +1,55 @@
+{
+  "pageTitle": "Auto Showcase",
+  "marqueeItems": ["HWA EVO", "|", "Mitsubishi Lancer Evo 8", "|"],
+  "cars": [
+    {
+      "id": "mitsubishi-evo-8",
+      "image": "/img/cars/redMitsubishiEvo.jpg",
+      "alt": "Mitsubishi",
+      "description": {
+        "title": "Mitsubishi Lancer Evo 8",
+        "text": "Der Mitsubishi Lancer Evo 8 ist ein leistungsstarker, allradgetriebener Sportwagen, der durch seine Turboaufladung und aggressive Optik bekannt wurde. Er gilt als Ikone des Rallyesports und bietet beeindruckende Fahreigenschaften auf der Straße und abseits davon."
+      },
+      "details": [
+        "Canon eos r",
+        "F1/150",
+        "Mitsubishi Lancer Evo 8"
+      ]
+    },
+    {
+      "id": "bmw-e38",
+      "image": "/img/cars/bmw.png",
+      "alt": "BMW",
+      "description": {
+        "title": "BMW 7er E38",
+        "text": "Der BMW 7er E38 (1994–2001) verbindet zeitlose Eleganz mit fortschrittlicher Technik und bietet Motoren vom Reihensechszylinder bis zum V12. Als erste Limousine mit integriertem Navigationssystem setzte er neue Maßstäbe in der Oberklasse. Sein Auftritt in Filmen wie „James Bond – Der Morgen stirbt nie“ unterstreicht seinen Kultstatus bis heute."
+      },
+      "details": [
+        "Canon eos r",
+        "F1/150",
+        "BMW E38"
+      ]
+    },
+    {
+      "id": "ferrari-f12",
+      "image": "/img/cars/f12.jpg",
+      "alt": "Audi",
+      "description": {
+        "title": "Ferrari F12",
+        "text": "Der Ferrari F12berlinetta ist ein supersportlicher Gran Turismo mit einem V12-Motor, der beeindruckende Leistung und Fahrdynamik bietet. Mit seinem markanten Design und der hohen Aerodynamik setzt der F12 neue Maßstäbe im Bereich der Luxus-Sportwagen."
+      },
+      "details": [
+        "Canon eos r",
+        "F1/150",
+        "Ferrari F12"
+      ]
+    }
+
+  ],
+  "videos": [
+    {
+      "id": "mitsubishi-evo-8",
+      "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+  ]
+}
