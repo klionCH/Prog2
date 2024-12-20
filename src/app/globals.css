@@ -19,3 +19,12 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.text-global {
+  @apply text-dark dark:text-light transition-colors duration-300;
+}
+
+.transition-global {
+  @apply bg-light dark:bg-dark transition-colors duration-300;
+}
+

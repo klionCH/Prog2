@@ -5,11 +5,15 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      transitionProperty: {
+        'colors': 'background-color, border-color, color, fill, stroke',
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        "light": "#f0f0f0",
+        "dark": "#333",
       },
     },
   },
