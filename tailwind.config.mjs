@@ -12,8 +12,8 @@ export default {
         'colors': 'background-color, border-color, color, fill, stroke',
       },
       colors: {
-        "light": "#f0f0f0",
-        "dark": "#333",
+        "light": "#FFFBF6",
+        "dark": "#242429",
       },
     },
   },

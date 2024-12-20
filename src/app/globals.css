@@ -28,3 +28,10 @@ body {
   @apply bg-light dark:bg-dark transition-colors duration-300;
 }
 
+.transition-global-inverse {
+  @apply bg-dark dark:bg-light transition-colors duration-300;
+}
+
+.card-glass {
+  @apply bg-dark dark:bg-light bg-opacity-15 dark:bg-opacity-15 shadow-lg dark:shadow-none rounded-lg drop-shadow-lg;
+}
