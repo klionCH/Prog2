@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation';  // Import to track the pathname
+import Card from "../components/card"
 
 export default function Cars() {
     const [showContent, setShowContent] = useState(false);
@@ -7,7 +9,10 @@ export default function Cars() {
     // Trigger transition when the page is loaded
     useEffect(() => {
         setShowContent(true);
+
     }, []);
+
+
 
 
     return (
@@ -18,6 +23,14 @@ export default function Cars() {
                         transition-transform duration-1000 ease-out transform ${
                         showContent ? "translate-y-0 opacity-100" : "translate-y-80 opacity-0"
                     }`}>
+                    <Card
+                        textLeft="This is the left text"
+                        textMiddle="This is the middle text"
+                        textRight="This is the right text"
+                        imgLeft="/5X8A3118-Edit.png"
+                        imgMiddle="/good%20quali.jpg"
+                        imgRight="/instaf12.jpg"
+                    />
                 </div>
             </div>
 
