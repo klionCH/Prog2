@@ -24,6 +24,12 @@ body {
   @apply text-dark dark:text-light transition-colors duration-300;
 }
 
+.text-global-inverse {
+  @apply text-white dark:text-black transition-colors duration-300;
+  @apply font-sans text-base md:text-lg lg:text-xl leading-relaxed tracking-wide;
+
+}
+
 .transition-global {
   @apply bg-light dark:bg-dark transition-colors duration-300;
 }
@@ -33,7 +39,9 @@ body {
 }
 
 .card-glass {
-  @apply bg-dark dark:bg-light bg-opacity-15 dark:bg-opacity-15 shadow-lg dark:shadow-none rounded-lg drop-shadow-lg;
+  @apply bg-white bg-opacity-15 dark:bg-opacity-15 shadow-xl rounded-lg drop-shadow-lg  bg-clip-padding backdrop-filter backdrop-blur-lg ;
 }
 
-
+.text-card{
+  @apply text-black
+}
