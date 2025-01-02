@@ -10,7 +10,9 @@ Dieses Projekt ist eine persönliche Webseite, auf der ich meine liebsten Freize
 - **Präsentation**: Meine Hobbys auf eine ansprechende Weise darzustellen.
 - **Webdesign**: Eine möglichst Kreative Webseite.
 
-## Design Konzept
+## Design Konzept Nr.1
 
 ![image](https://github.com/user-attachments/assets/12eeece5-4975-4c2b-bd07-3f42ef892382)
 
+## Design Konzept Nr.2
+![image](https://github.com/user-attachments/assets/0eb26f49-104c-4a5b-a2ac-18df0ed93d82)
