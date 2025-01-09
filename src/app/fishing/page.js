@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
-import { usePathname } from 'next/navigation';  // Import to track the pathname
-import Card from "../components/card"
+import { supabase } from "@/lib/supabaseClient";
+import Card from "../components/card";
 
 export default function Fishing() {
     const [showContent, setShowContent] = useState(false);
@@ -9,7 +9,7 @@ export default function Fishing() {
     // Trigger transition when the page is loaded
     useEffect(() => {
         setShowContent(true);
-
+        console.log("animation triggered")
     }, []);
 
 

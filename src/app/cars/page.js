@@ -1,25 +1,35 @@
 "use client";
 import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import Card from "../components/card";
 
 export default function Cars() {
     const [showContent, setShowContent] = useState(false);
     const [cardData, setCardData] = useState(null);
 
-    // Fetch data from Supabase
+    // Trigger transition when the page is loaded
     useEffect(() => {
         const fetchData = async () => {
-            const { data, error } = await supabase.from("cards").select("*");
-            if (error) {
-                console.error("Error fetching data:", error);
-            } else {
-                setCardData(data[0]); // Nur die erste Karte verwenden
+            try {
+                console.log("Fetching data...");
+                const { data, error } = await supabase
+                    .from("cards")
+                    .select("leftText, middleText, rightText, leftImg, middleImg, rightImg");
+                if (error) {
+                    console.error("Error fetching data:", error);
+                } else {
+                    console.log("Fetched data:", data);
+                    // Übernehme nur den ersten Eintrag (falls die Tabelle mehrere hat)
+                    setCardData(data.length > 0 ? data[0] : null);
+                    // Setze showContent nach einer kurzen Verzögerung
+                    setTimeout(() => setShowContent(true), 100); // Verzögerung von 100ms
+                }
+            } catch (err) {
+                console.error("Unexpected error:", err);
             }
         };
 
         fetchData();
-        setShowContent(true);
     }, []);
 
     if (!cardData) {
@@ -36,12 +46,12 @@ export default function Cars() {
                     }`}>
                     <div className="card-glass">
                         <Card
-                            textLeft={cardData.textLeft}
-                            textMiddle={cardData.textMiddle}
-                            textRight={cardData.textRight}
-                            imgLeft={cardData.imgLeft}
-                            imgMiddle={cardData.imgMiddle}
-                            imgRight={cardData.imgRight}
+                            textLeft={cardData.leftText}
+                            textMiddle={cardData.middleText}
+                            textRight={cardData.rightText}
+                            imgLeft={cardData.leftImg}
+                            imgMiddle={cardData.middleImg}
+                            imgRight={cardData.rightImg}
                         />
                     </div>
                 </div>
