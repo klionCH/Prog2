@@ -27,8 +27,11 @@ export default function RootLayout({ children }) {
 
             </main>
         </div>
+        <div
+            className="rounded-full w-2/3 aspect-square transition-global-inverse fixed z-[-1] -left-1/4 top-1/3"></div>
+
         <footer className="fixed bottom-0 left-0 w-full flex items-center justify-end p-6">
-            <ThemeToggle />
+            <ThemeToggle/>
         </footer>
         </body>
         </html>
