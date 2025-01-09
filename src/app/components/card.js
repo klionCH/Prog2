@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Card({ textLeft, textMiddle, textRight, imgLeft, imgMiddle, imgRight }) {
+export default function Card({ textLeft, textMiddle, textRight, imgLeft, imgMiddle, imgRight, w3 }) {
     const trimmedImgLeft = imgLeft.trim();
     const trimmedImgMiddle = imgMiddle.trim();
     const trimmedImgRight = imgRight.trim();
@@ -34,7 +34,7 @@ export default function Card({ textLeft, textMiddle, textRight, imgLeft, imgMidd
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card h-full text-balance gap-8 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card  text-balance gap-8 p-8 h-[80vh]">
             {/* Left Section */}
             <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
                 <div className="text-center flex items-center">{textLeft}</div>
@@ -55,7 +55,7 @@ export default function Card({ textLeft, textMiddle, textRight, imgLeft, imgMidd
             <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
                 <div className="m-auto w-full text-center">{textRight}</div>
                 <div className="m-auto row-span-2">
-                    {renderMedia(trimmedImgRight, "Right Media", 400, 300)}
+                    {renderMedia(trimmedImgRight, "Right Media", w3, 300)}
                 </div>
             </div>
         </div>

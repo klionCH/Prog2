@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Card from "../components/card";
 import CardWithVideo from "../components/cardWithVideo";
 import { useSwipeable } from "react-swipeable";
-import {setTimeout} from "node:timers"; // Importiere die Swipe-Funktionalität
+import { setTimeout } from "node:timers"; // Importiere die Swipe-Funktionalität
 
 export default function Cars() {
     const [showContent, setShowContent] = useState(false);
@@ -19,7 +19,7 @@ export default function Cars() {
                 console.log("Fetching data...");
                 const { data, error } = await supabase
                     .from("CarCards")
-                    .select("leftText, middleText, rightText, leftImg, middleImg, rightImg");
+                    .select("leftText, middleText, rightText, leftImg, middleImg, rightImg, containsVideo");
                 if (error) {
                     console.error("Error fetching data:", error);
                 } else {
@@ -39,7 +39,6 @@ export default function Cars() {
         if (currentIndex < cardData.length - 1) {
             setSwipeDirection(1); // Setze die Richtung nach rechts
             setCurrentIndex(currentIndex + 1); // Zeige die nächste Karte
-
         }
     };
 
@@ -63,15 +62,15 @@ export default function Cars() {
         );
     }
 
-    // Rendern von Karte 1 als Card und Karte 2 als CardWithVideo
-    const isFirstCard = currentIndex === 0;
-    const isSecondCard = currentIndex === 1;
+    // Holen des aktuellen Kartenobjekts und des "containsVideo"-Werts
+    const currentCard = cardData[currentIndex];
+    const isVideo = currentCard.containsVideo; // Boolean Wert, der angibt, ob es ein Video gibt
 
     return (
         <>
             <div className="min-h-screen flex items-center justify-center">
                 <div
-                    className={`w-[80vw] h-[80vh] transition-transform duration-1000 transform ${
+                    className={`w-[80vw]  transition-transform duration-1000 transform ${
                         showContent
                             ? `translate-x-${swipeDirection * 100} opacity-100`
                             : "translate-y-80 opacity-0"
@@ -79,28 +78,27 @@ export default function Cars() {
                     {...swipeHandlers} // Swipe-Handler hinzufügen
                 >
                     <div className="card-glass">
-                        {/* Karte 1 ist immer Card, Karte 2 ist immer CardWithVideo */}
-                        {isFirstCard ? (
-                            <Card
-                                textLeft={cardData[currentIndex].leftText}
-                                textMiddle={cardData[currentIndex].middleText}
-                                textRight={cardData[currentIndex].rightText}
-                                imgLeft={cardData[currentIndex].leftImg}
-                                imgMiddle={cardData[currentIndex].middleImg}
-                                imgRight={cardData[currentIndex].rightImg}
-                            />
-                        ) : isSecondCard ? (
+                        {/* Wenn "containsVideo" wahr ist, rendere CardWithVideo, andernfalls Card */}
+                        {isVideo ? (
                             <CardWithVideo
-                                textLeft={cardData[currentIndex].leftText}
-                                textMiddle={cardData[currentIndex].middleText}
-                                textRight={cardData[currentIndex].rightText}
-                                imgLeft={cardData[currentIndex].leftImg}
-                                imgMiddle={cardData[currentIndex].middleImg}
-                                imgRight={cardData[currentIndex].rightImg}
+                                textLeft={currentCard.leftText}
+                                textMiddle={currentCard.middleText}
+                                textRight={currentCard.rightText}
+                                imgLeft={currentCard.leftImg}
+                                imgMiddle={currentCard.middleImg}
+                                imgRight={currentCard.rightImg}
+
                             />
                         ) : (
-                            // Hier kannst du eine Standardanzeige für andere Karten einfügen
-                            <div>Loading next card...</div>
+                            <Card
+                                textLeft={currentCard.leftText}
+                                textMiddle={currentCard.middleText}
+                                textRight={currentCard.rightText}
+                                imgLeft={currentCard.leftImg}
+                                imgMiddle={currentCard.middleImg}
+                                imgRight={currentCard.rightImg}
+                                w3={400}
+                            />
                         )}
                     </div>
                 </div>
