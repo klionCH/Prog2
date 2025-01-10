@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Card from "../components/card";
 import CardWithVideo from "../components/cardWithVideo";
 import { useSwipeable } from "react-swipeable";
-import {setTimeout} from "node:timers"; // Importiere die Swipe-Funktionalität
+import { setTimeout } from 'timers';
 
 export default function Fishing() {
     const [showContent, setShowContent] = useState(false);

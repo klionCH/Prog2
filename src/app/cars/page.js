@@ -4,7 +4,7 @@ import { supabase } from "@/lib/supabaseClient";
 import Card from "../components/card";
 import CardWithVideo from "../components/cardWithVideo";
 import { useSwipeable } from "react-swipeable";
-import { setTimeout } from "node:timers"; // Importiere die Swipe-Funktionalität
+import { setTimeout } from 'timers';
 
 export default function Cars() {
     const [showContent, setShowContent] = useState(false);
@@ -44,27 +44,27 @@ export default function Cars() {
 
     const handlePrevCard = () => {
         if (currentIndex > 0) {
-            setSwipeDirection(-1); // Setze die Richtung nach links
-            setCurrentIndex(currentIndex - 1); // Zeige die vorherige Karte
+            setSwipeDirection(-1);
+            setCurrentIndex(currentIndex - 1);
         }
     };
 
     const swipeHandlers = useSwipeable({
-        onSwipedLeft: handleNextCard,  // Swipe nach links
-        onSwipedRight: handlePrevCard, // Swipe nach rechts
+        onSwipedLeft: handleNextCard,
+        onSwipedRight: handlePrevCard,
     });
 
     if (!cardData.length) {
         return (
             <div className="flex justify-center items-center min-h-screen">
-                <span className="text-2xl">Loading...</span> {/* Besseren Ladeindikator */}
+                <span className="text-2xl">Loading...</span>
             </div>
         );
     }
 
-    // Holen des aktuellen Kartenobjekts und des "containsVideo"-Werts
+
     const currentCard = cardData[currentIndex];
-    const isVideo = currentCard.containsVideo; // Boolean Wert, der angibt, ob es ein Video gibt
+    const isVideo = currentCard.containsVideo;
 
     return (
         <>
@@ -75,10 +75,9 @@ export default function Cars() {
                             ? `translate-x-${swipeDirection * 100} opacity-100`
                             : "translate-y-80 opacity-0"
                     }`}
-                    {...swipeHandlers} // Swipe-Handler hinzufügen
+                    {...swipeHandlers}
                 >
                     <div className="card-glass">
-                        {/* Wenn "containsVideo" wahr ist, rendere CardWithVideo, andernfalls Card */}
                         {isVideo ? (
                             <CardWithVideo
                                 textLeft={currentCard.leftText}
@@ -104,7 +103,6 @@ export default function Cars() {
                 </div>
             </div>
 
-            {/* Navigation Pfeile */}
             <div
                 className="absolute top-1/2 left-4 z-10 cursor-pointer"
                 onClick={handlePrevCard}

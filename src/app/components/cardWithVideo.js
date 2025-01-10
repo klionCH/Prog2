@@ -6,55 +6,52 @@ export default function CardWithVideo({ textLeft, textMiddle, textRight, imgLeft
     const trimmedImgRight = imgRight.trim();
 
 
-    const renderMedia = (src, alt, width, height) => {
-            return (
-                <Image
-                    src={src}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    className="max-w-full"
-                    priority
-                />
-            );
-
+    const renderMedia = (src, alt) => {
+        return (
+            <Image
+                src={src}
+                alt={alt}
+                layout="fill"
+                className="object-contain"
+                priority
+            />
+        );
     };
 
-    const renderVideo = (src, alt, width, height) => {
+    const renderVideo = (src, alt) => {
         return (
-            <video controls width={width} height={height}>
-                <source src={src} type="video/mp4"/>
-                <source src={src.replace('.mp4', '.webm')} type="video/webm"/>
+            <video controls className="w-full h-full object-contain">
+                <source src={src} type="video/mp4" />
+                <source src={src.replace('.mp4', '.webm')} type="video/webm" />
                 Dein Browser unterstützt das Video-Tag nicht.
             </video>
         );
-    }
+    };
 
-return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card h-full text-balance gap-8 p-8 h-[80vh]">
-        {/* Left Section */}
-        <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-            <div className="text-center flex items-center">{textLeft}</div>
-                <div className="m-auto row-span-2">
-                    {renderMedia(trimmedImgLeft, "Left Media", 500, 500)}
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card text-balance gap-8 p-8 h-[80vh]">
+            {/* Left Section */}
+            <div className="grid grid-cols-1 grid-rows-3 w-full h-full relative">
+                <div className="m-auto w-full text-center">{textLeft}</div>
+                <div className="relative row-span-2 w-full h-full">
+                    {renderMedia(trimmedImgLeft, "Left Media")}
                 </div>
             </div>
 
             {/* Middle Section */}
-            <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-                <div className="m-auto row-span-2">
-                    {renderMedia(trimmedImgMiddle, "Middle Media", 500, 200)}
+            <div className="grid grid-cols-1 grid-rows-3 w-full h-full relative">
+                <div className="relative row-span-2 w-full h-full">
+                    {renderMedia(trimmedImgMiddle, "Middle Media")}
                 </div>
                 <div className="m-auto w-full text-center">{textMiddle}</div>
             </div>
 
             {/* Right Section */}
-            <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-                <div className="m-auto row-span-3">
-                    {renderVideo(trimmedImgRight, "Right Media", 500, 300)}
+            <div className="grid grid-cols-1 grid-rows-3 w-full h-full relative">
+                <div className="relative row-span-3 w-full h-full">
+                    {renderVideo(trimmedImgRight, "Right Media")}
                 </div>
             </div>
         </div>
-
     );
 }

@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.47.10",
-    "next": "^15.1.1",
+    "next": "^15.1.4",
     "node": "^23.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-swipeable": "^7.0.2"
+    "react-swipeable": "^7.0.2",
+    "timers-browserify": "^2.0.12",
+    "webpack": "^5.97.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
