@@ -34,7 +34,7 @@ return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card h-full text-balance gap-8 p-8 h-[80vh]">
         {/* Left Section */}
         <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-            <div className="text-center flex items-center">{textLeft}</div>
+            <div className="text-justify flex items-center">{textLeft}</div>
                 <div className="m-auto row-span-2">
                     {renderMedia(trimmedImgLeft, "Left Media", 500, 500)}
                 </div>
@@ -45,7 +45,7 @@ return (
                 <div className="m-auto row-span-2">
                     {renderMedia(trimmedImgMiddle, "Middle Media", 500, 200)}
                 </div>
-                <div className="m-auto w-full text-center">{textMiddle}</div>
+                <div className="m-auto w-full text-justify">{textMiddle}</div>
             </div>
 
             {/* Right Section */}
