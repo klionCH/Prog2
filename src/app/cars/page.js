@@ -70,19 +70,18 @@ export default function Cars() {
         <>
             <div className="min-h-screen flex items-center justify-center">
                 <div
-                    className={`w-[80vw]  transition-transform duration-1000 transform ${
+                    className={`w-[80vw] transition-transform duration-1000 transform${
                         showContent
                             ? `translate-x-${swipeDirection * 100} opacity-100`
                             : "translate-y-80 opacity-0"
                     }`}
                     {...swipeHandlers}
                 >
-                    <div className="card-glass">
+                    <div className="card-glass lg:mt-[8vh] md:mt-10 lg:min-h-[80vh]">
                         {isVideo ? (
                             <CardWithVideo
                                 textLeft={currentCard.leftText}
                                 textMiddle={currentCard.middleText}
-                                textRight={currentCard.rightText}
                                 imgLeft={currentCard.leftImg}
                                 imgMiddle={currentCard.middleImg}
                                 imgRight={currentCard.rightImg}

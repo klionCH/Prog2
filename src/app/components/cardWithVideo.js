@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function CardWithVideo({ textLeft, textMiddle, textRight, imgLeft, imgMiddle, imgRight }) {
+export default function CardWithVideo({ textLeft, textMiddle, imgLeft, imgMiddle, imgRight }) {
     const trimmedImgLeft = imgLeft.trim();
     const trimmedImgMiddle = imgMiddle.trim();
     const trimmedImgRight = imgRight.trim();
@@ -30,31 +30,32 @@ export default function CardWithVideo({ textLeft, textMiddle, textRight, imgLeft
         );
     }
 
-return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card h-full text-balance gap-8 p-8 h-[80vh]">
-        {/* Left Section */}
-        <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-            <div className="text-justify flex items-center">{textLeft}</div>
-                <div className="m-auto row-span-2">
+    return (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 text-card gap-8 p-8 h-fit">
+            {/* Left Section */}
+            <div className="w-full h-full grid gap-8 content-between ">
+                <div className="text-justify flex items-center pb-8">{textLeft}</div>
+                <div className="m-auto">
                     {renderMedia(trimmedImgLeft, "Left Media", 500, 500)}
                 </div>
             </div>
 
             {/* Middle Section */}
-            <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-                <div className="m-auto row-span-2">
-                    {renderMedia(trimmedImgMiddle, "Middle Media", 500, 200)}
+            <div className="w-full h-full grid content-between">
+                <div className="m-auto">
+                    {renderMedia(trimmedImgMiddle, "Middle Media", 200, 500)}
                 </div>
                 <div className="m-auto w-full text-justify">{textMiddle}</div>
             </div>
 
-            {/* Right Section */}
-            <div className="grid grid-cols-1 grid-rows-3 w-full h-full">
-                <div className="m-auto row-span-3">
-                    {renderVideo(trimmedImgRight, "Right Media", 500, 300)}
-                </div>
+
+        {/* Right Section */}
+        <div className="w-full h-full">
+            <div className="m-auto row-span-3">
+                {renderVideo(trimmedImgRight, "Right Media", 500, 300)}
             </div>
         </div>
+    </div>
 
-    );
+);
 }

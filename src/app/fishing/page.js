@@ -9,8 +9,6 @@ import { setTimeout } from 'timers';
 export default function Fishing() {
     const [showContent, setShowContent] = useState(false);
     const [cardData, setCardData] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0); // Der Index der aktuell angezeigten Karte
-    const [swipeDirection, setSwipeDirection] = useState(0); // Richtung der Animation (-1 für links, 1 für rechts)
 
     // Trigger transition when the page is loaded
     useEffect(() => {
@@ -50,18 +48,18 @@ export default function Fishing() {
                 <div
                     className={`w-[80vw] transition-transform duration-1000 transform ${
                         showContent
-                            ? `translate-x-${swipeDirection * 100} opacity-100`
+                            ? `translate-x-0 opacity-100`
                             : "translate-y-80 opacity-0"
                     }`}
                 >
-                    <div className="card-glass">
+                    <div className="card-glass lg:mt-[8vh] md:mt-10 lg:min-h-[80vh]">
                             <Card
-                                textLeft={cardData[currentIndex].leftText}
-                                textMiddle={cardData[currentIndex].middleText}
-                                textRight={cardData[currentIndex].rightText}
-                                imgLeft={cardData[currentIndex].leftImg}
-                                imgMiddle={cardData[currentIndex].middleImg}
-                                imgRight={cardData[currentIndex].rightImg}
+                                textLeft={cardData[0].leftText}
+                                textMiddle={cardData[0].middleText}
+                                textRight={cardData[0].rightText}
+                                imgLeft={cardData[0].leftImg}
+                                imgMiddle={cardData[0].middleImg}
+                                imgRight={cardData[0].rightImg}
                                 w3={500}
                             />
                     </div>
