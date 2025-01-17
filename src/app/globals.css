@@ -39,7 +39,7 @@ body {
 }
 
 .card-glass {
-  @apply bg-white bg-opacity-15 dark:bg-opacity-15 shadow-xl rounded-lg drop-shadow-lg  bg-clip-padding backdrop-filter backdrop-blur-lg ;
+  @apply bg-white bg-opacity-15 dark:bg-opacity-15 shadow-xl rounded-lg drop-shadow-lg bg-clip-padding backdrop-filter backdrop-blur-lg ;
 }
 
 .text-card{
