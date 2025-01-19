@@ -17,8 +17,7 @@ Diese Webseite ist eine Reise durch meine liebsten Freizeitbeschäftigungen. Sie
 
 ## 📚 **Design-Konzepte**
 
-Ich habe zwei Design-Ansätze entwickelt, um verschiedene Stile und Layouts auszuprobieren:
-
+Ich habe zwei Designansätze entwickelt. Nachdem ich den ersten zu 75 % fertiggestellt hatte, gefiel er mir nicht mehr und ich beschloss, noch einmal von vorne anzufangen:
 ### **Design Konzept Nr. 1**:
 ![Design Konzept 1](https://github.com/user-attachments/assets/12eeece5-4975-4c2b-bd07-3f42ef892382)
 
