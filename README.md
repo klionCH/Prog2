@@ -8,6 +8,12 @@ Willkommen zu meiner Dokumentation! Dieses Projekt ist eine Webseite, auf der ic
 
 Diese Webseite ist eine Reise durch meine liebsten Freizeitbeschäftigungen. Sie wurde mit dem Ziel erstellt, ästhetisch ansprechend, benutzerfreundlich und interaktiv zu sein. Dabei setze ich auf moderne Webtechnologien und kreative Elemente.
 
+**Um eine Verbindung zu der Datenbank zu erstellen muss ein .env file erstellt werden mit dieser Konfiguration:**
+```
+NEXT_PUBLIC_SUPABASE_URL=https://hhmmyoeixodmlyahgcvm.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhobW15b2VpeG9kbWx5YWhnY3ZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU4MjAxODUsImV4cCI6MjA1MTM5NjE4NX0.H9Z94X5xhM2a6phzC39FBUquPQrvEaw-2KPEHQCxdr8
+```
+
 ### 🎯 **Projektziele**:
 - **Präsentation**: Meine Hobbys auf eine attraktive Weise vorstellen.
 - **Webdesign**: Kreative und interaktive Elemente einbauen.
@@ -24,7 +30,6 @@ Ich habe zwei Designansätze entwickelt. Nachdem ich den ersten zu 75 % fertigge
 ### **Design Konzept Nr. 2**:
 ![Design Konzept 2](https://github.com/user-attachments/assets/0eb26f49-104c-4a5b-a2ac-18df0ed93d82)
 
----
 
 ## 🎨 **Mein finales Produkt**
 
